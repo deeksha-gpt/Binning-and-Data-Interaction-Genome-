@@ -1,0 +1,8 @@
+loops bedpe file to bed. Remove duplicates
+1. bedtools intersect -a 5y_merged_loops_1.bed -b SH-SY5Y_enh_atlas.bed -u > 5y_loop_end_with_enh_atlas.bed
+2. find the interacting interval from 5y_merged_loops.bedpe for each interval in 5y_loop_end_with_enh_atlas.bed > 5y_enh_atlas_interactions.bed. remove duplicates
+3. bedtools intersect -a gene_name_tss_human_sort.bed -b 5y_enh_atlas_interactions_1.bed -u > 5y_enh_atlas_interacting_genes.bed
+
+md5sum filename - will give 32 charater file, compare in excel =A1=B1 then ENTER will get(TRUE/FALSE)
+awk '{print $NF}' 5y_enh_atlas_interacting_genes_dg.bed > 5y_enh_atlas_interacting_genes_NAMES.txt (will save the last column of the file as a new file)
+FPKM is a measure commonly used in RNAseq experiments to quantify gene expression levels. FPKM is calulated to normalize for sequencing depth and gene length, allowing comparision of expression levels between different samples.
